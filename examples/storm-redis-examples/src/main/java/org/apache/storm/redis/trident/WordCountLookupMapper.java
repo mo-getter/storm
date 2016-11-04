@@ -20,6 +20,7 @@ package org.apache.storm.redis.trident;
 import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.ITuple;
+import org.apache.storm.tuple.Tuple;
 import org.apache.storm.tuple.Values;
 import org.apache.storm.redis.common.mapper.RedisDataTypeDescription;
 import org.apache.storm.redis.common.mapper.RedisLookupMapper;
@@ -53,5 +54,11 @@ public class WordCountLookupMapper implements RedisLookupMapper {
     @Override
     public String getValueFromTuple(ITuple tuple) {
         return tuple.getInteger(1).toString();
+    }
+
+    @Override
+    public String getStreamId(Tuple input, Values values) {
+        // default stream
+        return null;
     }
 }

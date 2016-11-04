@@ -16,6 +16,7 @@
 package org.apache.storm.redis.common.mapper;
 
 import java.io.Serializable;
+import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.tuple.Tuple;
 import org.apache.storm.tuple.Values;
 
@@ -34,5 +35,11 @@ public interface StreamMapper extends Serializable {
      * @return the stream id to use for emitting tuples
      */
     String getStreamId(Tuple input, Values values);
+    
+    /**
+     * declare what are the fields that this code will output.
+     * @param declarer OutputFieldsDeclarer
+     */
+    void declareOutputFields(OutputFieldsDeclarer declarer);
 
 }

@@ -17,16 +17,8 @@
  */
 package org.apache.storm.redis.common.mapper;
 
-import org.apache.storm.topology.OutputFieldsDeclarer;
-
 /**
  * RedisFilterMapper is for defining spec. which is used for querying value from Redis and filtering.
  */
-public interface RedisFilterMapper extends TupleMapper, RedisMapper {
-
-    /**
-     * declare what are the fields that this code will output.
-     * @param declarer OutputFieldsDeclarer
-     */
-    void declareOutputFields(OutputFieldsDeclarer declarer);
+public interface RedisFilterMapper extends TupleMapper, RedisMapper, StreamMapper {
 }

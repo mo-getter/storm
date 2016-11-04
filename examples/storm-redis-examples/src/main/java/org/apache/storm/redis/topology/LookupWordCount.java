@@ -162,5 +162,11 @@ public class LookupWordCount {
         public String getValueFromTuple(ITuple tuple) {
             return null;
         }
+
+        @Override
+        public String getStreamId(Tuple input, Values values) {
+            // default stream
+            return null;
+        }
     }
 }

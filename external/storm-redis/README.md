@@ -14,7 +14,7 @@ use it as a maven dependency:
 <dependency>
     <groupId>org.apache.storm</groupId>
     <artifactId>storm-redis</artifactId>
-    <version>{storm.version}</version>
+    <version>${storm.version}</version>
     <type>jar</type>
 </dependency>
 ```
@@ -72,6 +72,12 @@ class WordCountRedisLookupMapper implements RedisLookupMapper {
     public String getValueFromTuple(ITuple tuple) {
         return null;
     }
+
+    @Override
+    public String getStreamId(Tuple tuple, Values values) {
+        // default stream
+        return null;
+    }
 }
 
 ```
@@ -114,6 +120,12 @@ class BlacklistWordFilterMapper implements RedisFilterMapper {
 
     @Override
     public String getValueFromTuple(ITuple tuple) {
+        return null;
+    }
+
+    @Override
+    public String getStreamId(Tuple tuple, Values values) {
+        // default stream
         return null;
     }
 }

@@ -37,6 +37,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 import java.util.Random;
+import org.apache.storm.tuple.Values;
 
 public class WhitelistWordCount {
     private static final String WORD_SPOUT = "WORD_SPOUT";
@@ -149,6 +150,12 @@ public class WhitelistWordCount {
 
         @Override
         public String getValueFromTuple(ITuple tuple) {
+            return null;
+        }
+
+        @Override
+        public String getStreamId(Tuple input, Values values) {
+            // default stream
             return null;
         }
     }
